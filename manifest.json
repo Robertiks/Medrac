@@ -1,0 +1,22 @@
+{
+  "name": "Medrac",
+  "description": "A simple yet powerful extension to help you download media content from websites with just a few clicks.",
+  "version": "0.18",
+  "manifest_version": 3,
+  "permissions": ["downloads", "scripting", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+ "action": {
+    "default_title": "Medrac",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
